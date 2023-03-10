@@ -1,0 +1,11 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+Name: luowaveradio-analog
+Description: GNU Radio blocks for analog communications
+Requires: luowaveradio-runtime volk
+Version: @LIBVER@
+Libs: -L${libdir} -lluowaveradio-analog
+Cflags: -I${includedir}

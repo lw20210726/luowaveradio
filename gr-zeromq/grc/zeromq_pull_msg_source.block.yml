@@ -1,0 +1,29 @@
+id: zeromq_pull_msg_source
+label: ZMQ PULL套接字的消息信源
+category: '[Core]/高性能消息队列接口'
+
+parameters:
+-   id: address
+    label: Address
+    dtype: string
+-   id: timeout
+    label: Timeout (msec)
+    dtype: float
+    default: '100'
+-   id: bind
+    category: Advanced
+    label: Bind
+    dtype: bool
+    default: 'False'
+    hide: part
+
+outputs:
+-   domain: message
+    id: out
+    optional: true
+
+templates:
+    imports: from luowaveradio import zeromq
+    make: zeromq.pull_msg_source(${address}, ${timeout}, ${bind})
+
+file_format: 1

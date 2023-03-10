@@ -1,0 +1,18 @@
+id: dtv_atsc_interleaver
+label: ATSC交织器
+
+inputs:
+-   domain: stream
+    dtype: byte
+    vlen: 256
+
+outputs:
+-   domain: stream
+    dtype: byte
+    vlen: 256
+
+templates:
+    imports: from luowaveradio import dtv
+    make: dtv.atsc_interleaver()
+
+file_format: 1

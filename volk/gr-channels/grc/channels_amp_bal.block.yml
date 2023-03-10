@@ -1,0 +1,24 @@
+id: channels_amp_bal
+label: 幅度均衡器
+
+parameters:
+-   id: alpha
+    label: Alpha
+    dtype: float
+    default: '0'
+
+inputs:
+-   domain: stream
+    dtype: complex
+
+outputs:
+-   domain: stream
+    dtype: complex
+
+templates:
+    imports: from luowaveradio import channels
+    make: channels.amp_bal(${alpha})
+    callbacks:
+    - set_alpha(${alpha})
+
+file_format: 1

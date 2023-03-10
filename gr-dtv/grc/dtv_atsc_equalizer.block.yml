@@ -1,0 +1,18 @@
+id: dtv_atsc_equalizer
+label: ATSC均衡器
+
+inputs:
+-   domain: stream
+    dtype: byte
+    vlen: 4096
+
+outputs:
+-   domain: stream
+    dtype: byte
+    vlen: 4096
+
+templates:
+    imports: from luowaveradio import dtv
+    make: dtv.atsc_equalizer()
+
+file_format: 1

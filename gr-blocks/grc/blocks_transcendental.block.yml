@@ -1,0 +1,36 @@
+id: blocks_transcendental
+label: 数据流快速运算器
+flags: [ python, cpp ]
+
+parameters:
+-   id: type
+    label: Type
+    dtype: enum
+    options: [complex_double, float]
+    option_labels: [Complex, Float]
+    option_attributes:
+        type: [complex, float]
+    hide: part
+-   id: name
+    label: Function Name
+    dtype: string
+    default: cos
+
+inputs:
+-   domain: stream
+    dtype: ${ type.type }
+
+outputs:
+-   domain: stream
+    dtype: ${ type.type }
+
+templates:
+    imports: from luowaveradio import blocks
+    make: blocks.transcendental(${name}, "${type}")
+
+cpp_templates:
+    includes: ['#include <luowaveradio/blocks/transcendental.h>']
+    declarations: 'blocks::transcendental::sptr ${id};'
+    make: 'this->${id} = blocks::transcendental::make(${name}, "$type");'
+
+file_format: 1

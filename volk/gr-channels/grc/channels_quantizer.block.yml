@@ -1,0 +1,24 @@
+id: channels_quantizer
+label: 量化器
+
+parameters:
+-   id: bits
+    label: Bits
+    dtype: int
+    default: '16'
+
+inputs:
+-   domain: stream
+    dtype: float
+
+outputs:
+-   domain: stream
+    dtype: float
+
+templates:
+    imports: from luowaveradio import channels
+    make: channels.quantizer(${bits})
+    callbacks:
+    - set_bits(${bits})
+
+file_format: 1

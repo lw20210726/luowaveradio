@@ -1,0 +1,27 @@
+id: digital_packet_headerparser_b
+label: 数据包头解析器
+
+parameters:
+-   id: header_formatter
+    label: Formatter Object
+    dtype: raw
+
+inputs:
+-   domain: stream
+    dtype: byte
+
+outputs:
+-   domain: message
+    id: header_data
+
+templates:
+    imports: from luowaveradio import digital
+    make: digital.packet_headerparser_b(${header_formatter})
+
+cpp_templates:
+    includes: ['#include <luowaveradio/digital/packet_headerparser_b.h>']
+    declarations: 'digital::packet_headerparser_b::sptr ${id};'
+    make: 'this->${id} = digital::packet_headerparser_b::make(${header_formatter});'
+    link: ['luowaveradio-digital']
+
+file_format: 1

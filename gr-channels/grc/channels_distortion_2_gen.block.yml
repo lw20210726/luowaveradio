@@ -1,0 +1,24 @@
+id: channels_distortion_2_gen
+label: 二阶失真器
+
+parameters:
+-   id: beta
+    label: Distortion
+    dtype: float
+    default: '0'
+
+inputs:
+-   domain: stream
+    dtype: complex
+
+outputs:
+-   domain: stream
+    dtype: complex
+
+templates:
+    imports: from luowaveradio import channels
+    make: channels.distortion_2_gen(${beta})
+    callbacks:
+    - set_beta(${beta})
+
+file_format: 1

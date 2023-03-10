@@ -1,0 +1,25 @@
+id: digital_framer_sink_1
+label: 数据包组帧器
+flags: [ python, cpp ]
+
+parameters:
+-   id: target_queue
+    label: Target Message Queue
+    dtype: raw
+
+inputs:
+-   domain: stream
+    dtype: byte
+
+templates:
+    imports: from luowaveradio import digital
+    make: digital.framer_sink_1(${target_queue})
+
+cpp_templates:
+    includes: ['#include <luowaveradio/digital/framer_sink_1.h>']
+    declarations: 'digital::framer_sink_1::sptr ${id};'
+    make: |-
+        this->${id} = digital::framer_sink_1::make(${target_queue});
+    link: ['luowaveradio-digital']
+
+file_format: 1

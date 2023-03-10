@@ -1,0 +1,16 @@
+id: dtv_catv_transport_framing_enc_bb
+label: ITU-T J.83B传输帧编码器
+
+inputs:
+-   domain: stream
+    dtype: byte
+
+outputs:
+-   domain: stream
+    dtype: byte
+
+templates:
+    imports: from luowaveradio import dtv
+    make: dtv.catv_transport_framing_enc_bb()
+
+file_format: 1

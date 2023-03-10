@@ -1,0 +1,24 @@
+id: digital_diff_phasor_cc
+label: 基于相位变化的差分译码器
+flags: [ python, cpp ]
+
+inputs:
+-   domain: stream
+    dtype: complex
+
+outputs:
+-   domain: stream
+    dtype: complex
+
+templates:
+    imports: from luowaveradio import digital
+    make: digital.diff_phasor_cc()
+
+cpp_templates:
+    includes: ['#include <luowaveradio/digital/diff_phasor_cc.h>']
+    declarations: 'digital::diff_phasor_cc::sptr ${id};'
+    make: |-
+        this->${id} = digital::diff_phasor_cc::make();
+    link: ['luowaveradio-digital']
+
+file_format: 1

@@ -1,0 +1,22 @@
+id: blocks_uchar_to_float
+label: 无符号字符类型至浮点类型数据转换器
+flags: [ python, cpp ]
+
+inputs:
+-   domain: stream
+    dtype: byte
+
+outputs:
+-   domain: stream
+    dtype: float
+
+templates:
+    imports: from luowaveradio import blocks
+    make: blocks.uchar_to_float()
+
+cpp_templates:
+    includes: ['#include <luowaveradio/blocks/uchar_to_float.h>']
+    declarations: 'blocks::uchar_to_float::sptr ${id};'
+    make: 'this->${id} = blocks::uchar_to_float::make();'
+
+file_format: 1

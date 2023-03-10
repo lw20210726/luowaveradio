@@ -1,0 +1,7 @@
+'[Core]':
+- 傅里叶分析:
+  - fft_vxx
+  - goertzel_fc
+  - logpwrfft_x
+- 控制端口:
+  - fft_ctrlport_probe_psd

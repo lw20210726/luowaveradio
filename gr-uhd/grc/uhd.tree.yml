@@ -1,0 +1,5 @@
+'[Core]':
+- UHD驱动模块:
+  - uhd_usrp_source
+  - uhd_usrp_sink
+  - uhd_amsg_source

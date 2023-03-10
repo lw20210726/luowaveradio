@@ -1,0 +1,17 @@
+id: dtv_atsc_depad
+label: ATSC去填充器
+
+inputs:
+-   domain: stream
+    dtype: byte
+    vlen: 256
+
+outputs:
+-   domain: stream
+    dtype: byte
+
+templates:
+    imports: from luowaveradio import dtv
+    make: dtv.atsc_depad()
+
+file_format: 1
